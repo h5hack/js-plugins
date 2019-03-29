@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="//cdn.bootcss.com/jsrender/0.9.86/jsrender.min.js"></script>
+</head>
+<body>
+
+<div id="result"></div>
+
+<script id="theTmpl" type="text/x-jsrender">
+  <li>{{:name}} {{if showNickname}}显示{{else}}隐藏{{/if}} {{if age < 3}} <3 {{else age < 5}} < 5 {{else}} < max {{/if}}</li>
+</script>
+
+<script>
+var data = [
+  {
+    "name": "Robert",
+    "age": 2,
+    "showNickname": true
+  },
+  {
+    "name": "Susan",
+    "age": 4,
+    "showNickname": false
+  },
+  {
+    "name": "Susan",
+    "age": 27,
+    "showNickname": false
+  },
+];
+$("#result").html($("#theTmpl").render(data));
+</script>
+</body>
+</html>
+
+<!-- http://www.cnblogs.com/panmy/p/5927269.html -->
+<!-- http://www.jsviews.com -->

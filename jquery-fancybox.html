@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Fancybox</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/fancybox/2.1.7/css/jquery.fancybox.min.css">
+    <script src="//cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/fancybox/2.1.7/js/jquery.fancybox.min.js"></script>
+</head>
+<body>
+
+<a class="imgbox" rel="group" href="//via.placeholder.com/500x200/f00/000.jpg" title="图片1说明">
+    <img src="//via.placeholder.com/200x80/f00/000.jpg">
+</a>
+<a class="imgbox" rel="group" href="//via.placeholder.com/500x200/09f/000.jpg">
+    <img src="//via.placeholder.com/200x80/09f/000.jpg">
+</a>
+
+<a class="videobox" href="#video1">
+    <img src="//via.placeholder.com/80x80/0f0/000.jpg?text=video">
+    <video id="video1" src="http://cloud-7724.oss-cn-hangzhou.aliyuncs.com/videox-mini/video/2018/anime/10gm.mp4" controls style="display:none"></video>
+</a>
+
+<script>
+$(function () {
+    $(".imgbox").fancybox();
+    $(".videobox").fancybox({
+        afterLoad: function() {
+            $(this.element).children("video")[0].play();
+        },
+        afterClose: function() {
+            $(this.element).children("video")[0].pause();
+        }
+    });
+});
+</script>
+</body>
+</html>
+
+<!-- 注意：BootCDN-fancybox暂时不要用3的，效果不理想（2系列的比较经典） -->

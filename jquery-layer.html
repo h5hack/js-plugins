@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Layer</title>
+    <script src="//cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/layer/2.3/layer.js"></script>
+</head>
+<body>
+
+<p>
+    <button id="default">alert-default</button>
+    <button id="info">alert-info</button>
+    <button id="succ">alert-succ</button>
+    <button id="error">alert-error</button>
+    <button id="question">alert-question</button>
+    <button id="lock">alert-lock</button>
+    <button id="cry">alert-cry</button>
+    <button id="smile">alert-smile</button>
+</p>
+<p>
+    <button id="msg-default">msg-default</button>
+    <button id="msg-cry">msg-cry</button>
+    <button id="msg-smile">msg-smile</button>
+</p>
+<p>
+    <button id="iframe">iframe层</button>
+</p>
+
+<script>
+
+// alert
+$("#default").click(function() {
+    layer.alert('default');
+});
+$("#info").click(function() {
+    layer.alert('info', {icon: 0});
+});
+$("#succ").click(function() {
+    layer.alert('succ', {icon: 1});
+});
+$("#error").click(function() {
+    layer.alert('error', {icon: 2});
+});
+$("#question").click(function() {
+    layer.alert('question', {icon: 3});
+});
+$("#lock").click(function() {
+    layer.alert('lock', {icon: 4});
+});
+$("#cry").click(function() {
+    layer.alert('cry', {icon: 5});
+});
+$("#smile").click(function() {
+    layer.alert('smile', {icon: 6});
+});
+
+// msg
+$("#msg-default").click(function() {
+    layer.msg('默认黑色磨砂背景，3秒');
+});
+$("#msg-cry").click(function() {
+    layer.msg('cry图标，1秒消失', {icon:5, time: 1000});
+});
+$("#msg-smile").click(function() {
+    layer.msg('smile图标，1秒消失', {icon: 6, time: 1000});
+});
+
+// iframe层
+$("#iframe").click(function() {
+    layer.open({
+        type: 2,             // iframe层
+        title: '我是标题哦', // false没有标题
+        shade: 0.5,          // 背景不透明度，false背景没有阴影
+        area: ['25%', '85%'],
+        maxmin: true,        // 放大缩小按钮
+        content: 'http://m.7724.com'
+    });
+});
+</script>
+
+</body>
+</html>

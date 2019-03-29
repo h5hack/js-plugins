@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container text-center">
+        <ul class="list-unstyled">
+            <li><img class="lazyload" alt="test1" data-original="https://via.placeholder.com/500x200/09f/fff.png"></li>
+            <li><img class="lazyload" alt="test2" data-original="https://via.placeholder.com/500x300/f00/fff.png"></li>
+            <li><img class="lazyload" alt="test3" data-original="https://via.placeholder.com/500x300/ff0/fff.png"></li>
+            <li><img class="lazyload" alt="test4" data-original="https://via.placeholder.com/500x300/0f0/fff.png"></li>
+            <li><img class="lazyload" alt="test5" data-original="https://via.placeholder.com/500x300/00f/fff.png"></li>
+        </ul>
+    </div>
+    <script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+    <script>
+    $(function() {
+        $("img.lazyload").lazyload({
+            effect: "fadeIn",
+            placeholder: "http://mm.bst.126.net/images/loading2.gif"
+        });
+    });
+    </script>
+</body>
+</html>
