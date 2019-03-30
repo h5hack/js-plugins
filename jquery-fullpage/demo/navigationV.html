@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+<title>FullScreen Backgrounds - fullPage.js</title>
+<link rel="stylesheet" type="text/css" href="jquery.fullpage.css" />
+<style>
+/* Style for our header texts 
+* --------------------------------------- */
+h1{
+	font-size: 5em;	
+	font-family: arial,helvetica;
+	color: #fff;
+	margin:0;
+}
+.intro p{
+	color: #fff;
+}
+
+/* Centered texts in each section 
+* --------------------------------------- */
+.section{
+	text-align:center;
+}
+
+/* Overwriting styles for control arrows for slides
+* --------------------------------------- */
+.controlArrow.prev {
+	left: 50px;
+}
+.controlArrow.next{
+	right: 50px;
+}
+
+/* Overwriting styles */
+#fullPage-nav li {
+	margin: 12px;
+}
+#fullPage-nav li span {
+	width: 15px;
+	height: 15px;
+	background-color: yellow;
+}
+#fullPage-nav li .active span {
+	background-color: red;
+}
+</style>
+
+<!--[if IE]>
+	<script type="text/javascript">
+		 var console = { log: function() {} };
+	</script>
+<![endif]-->
+<script src="jquery.js"></script>
+<script src="jquery.easings.min.js"></script>
+<script type="text/javascript" src="jquery.fullPage.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$.fn.fullpage({
+		anchors: ['firstPage', 'secondPage', '3rdPage'],
+		slidesColor: ['#C63D0F', '#1BBC9B', '#7E8F7C'],
+		navigation: true,
+		navigationPosition: 'right',
+		navigationTooltips: ['First', 'Second', 'Third'],
+		
+		// events
+		afterRender: function() { // 初始化
+			alert('after render');
+		},
+		onLeave: function(index, direction) { // index当前页
+			alert(index + " " + direction);
+		},
+		afterLoad: function(anchorLink, index) { // 换屏完成之后
+			alert(anchorLink + " " + index);
+		}
+	});
+});
+</script>
+</head>
+<body>
+
+<div class="section">
+	<div class="intro">
+		<h1>Navigation dots</h1>
+		<p>An easy and beautiful way to navigate throw the sections</p>
+	</div>
+</div>
+
+<div class="section">
+    <div class="slide">
+		<h1>Slide 1</h1>
+	</div>
+	
+    <div class="slide">
+		<h1>Slide 2</h1>
+	</div>
+	
+	<div class="slide">
+		<h1>Slide 3</h1>
+	</div>
+</div>
+
+<div class="section">
+	<div class="intro">
+		<h1>Enjoy it</h1>
+	</div>
+</div>
+
+</body>
+</html>

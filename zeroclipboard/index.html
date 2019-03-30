@@ -1,0 +1,21 @@
+<script type="text/javascript" src="ZeroClipboard.min.js"></script>
+
+<button id="c">Copy</button>
+<div id="content">
+	<b>hello world</b>
+</div>
+
+
+
+<script type="text/javascript">
+
+// 必须要DOM加载完成才能运行，可以把zeroclipboard代码放在dom后
+var clip = new ZeroClipboard(document.getElementById("c"));
+clip.on("copy", function(e) {
+	clip.setHtml(document.getElementById("content").innerHTML);
+});
+clip.on("aftercopy", function() {
+	alert("copy finished!");
+});
+
+</script>
