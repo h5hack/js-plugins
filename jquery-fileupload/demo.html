@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="jquery.min.js"></script>
+<script src="jquery.ui.widget.js"></script>
+<script src="jquery.iframe-transport.js"></script>
+<script src="jquery.fileupload.js"></script>
+
+<style>
+.fileupload-div {
+	width: 72px;
+	height: 30px;
+	cursor: pointer;
+	border: 2px;
+	display: inline-block;
+	background-color:pink;
+	position: relative;
+}
+#fileupload {
+	opacity: 0;
+}
+</style>
+
+</head>
+<body>
+
+<img src="" id="preview" />
+
+<div class="fileupload-div">
+<input type="file" name="image" id="fileupload" />
+</div>
+
+<script type="text/javascript">
+$("#fileupload").fileupload({
+
+	// 文件上传地址，当然也可以直接写在input的data-url属性内
+	url: "upload.php",
+	
+	// 如果需要额外添加参数可以在这里添加
+	formData: {myname:"also"},
+	
+	// 添加时
+	add: function(e, data) {
+		$("#preview").attr("src", "loading.gif");
+		data.submit();
+	},
+	
+	// 上传完毕的回调函数
+	done: function(e, data) {
+		var result = data.result;
+		if (result.errcode != 0) {
+			alert(result.errmsg);
+			$("#preview").attr("src", "");
+		} else {
+			alert(JSON.stringify(result));
+			$("#preview").attr("src", result.thumb_name);
+		}
+    }
+})
+</script>
+</body>
+</html>

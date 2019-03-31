@@ -1,0 +1,49 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pagination Demo</title>
+<link rel="stylesheet" href="pagination.css" />
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="jquery.pagination.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+	var num_entries = $("#hiddenresult ul li").length;
+	$("#pagination").pagination(num_entries, {
+		items_per_page: 3,
+		callback: pageselectCallback
+	});
+
+	function pageselectCallback(index, jq) { // index为索引，jq为<div id="pagination">块对象
+		hiddenresult = $("#hiddenresult").html();
+		content = $("#hiddenresult ul li").slice(index * 3, (index +1 ) * 3);
+		$("#hiddenresult").html(hiddenresult);
+		$("#searchresult ul").html(content);
+	}
+	
+	// 初始化
+	pageselectCallback(0);
+});
+
+</script>
+</head>
+<body>
+<div id="pagination"></div>
+<br />
+<div id="searchresult"><ul></ul></div>
+
+<div id="hiddenresult" style="display:none;">
+	<ul>
+		<li>one</li>
+		<li>two</li>
+		<li>three</li>
+		<li>four</li>
+		<li>five</li>
+		<li>six</li>
+		<li>seven</li>
+		<li>eight</li>
+	</ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>EasyDrag</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="easydrag.js"></script>
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+}
+dl#popbox {
+	width: 450px;
+	height: 320px;
+	display: none;
+	position: absolute;
+	border: 3px solid #266FA7;
+}
+dt {
+	height:30px;
+	line-height:30px;
+	color: white;
+	background: #266FA7;
+}
+dt .close {
+	float: right;
+	cursor: pointer;
+}
+dd {
+	width:450px;
+	height: 290px;
+	background-color: #A2C7F4;
+}
+</style>
+<script language="javascript">
+$(function() {
+	$('a').click(function() {
+		$('#popbox').css({
+			left: ($(window).width() - $('#popbox').outerWidth()) / 2,
+			top: ($(window).height() - $('#popbox').outerHeight()) / 2 + $(document).scrollTop()
+		});
+		$('#popbox').fadeIn();
+		
+		$('#popbox').easydrag();
+		$('#popbox').setHandler('handler'); // 必须放在easydrag()后面，否则无效
+		
+		$('.close').click(function() {
+			$('#popbox').fadeOut();
+		})
+	});	
+})
+</script>
+<title></title>
+</head>
+<body>
+<a href="#">easydrag</a>
+
+<dl id="popbox">
+	<dt id="handler">我是拖动位置<b class="close">关闭</b></dt>
+	<dd></dd>
+</dl>
+</body>
+</html>

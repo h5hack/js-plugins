@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Poshy Tip jQuery Plugin Demo Page</title>
+<link rel="stylesheet" href="tip-yellowsimple.css" type="text/css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.poshytip.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	$('#demo-basic').poshytip({
+		className: 'tip-yellowsimple',
+		showTimeout: 1,
+		alignTo: 'target',
+		alignX: 'center',
+		offsetY: 5
+	});
+	$('#demo-form-name').poshytip({
+		className: 'tip-yellowsimple',
+		showOn: 'focus',
+		alignTo: 'target',
+		alignX: 'right',
+		alignY: 'center',
+		offsetX: 5,
+		showTimeout: 100
+	});
+	$('#demo-form-email').poshytip({
+		className: 'tip-yellowsimple',
+		showOn: 'focus',
+		alignTo: 'target',
+		alignX: 'left',
+		alignY: 'center',
+		offsetX: 5,
+		showTimeout: 100
+	});
+	$('#demo-form-site').poshytip({
+		className: 'tip-yellowsimple',
+		showOn: 'focus',
+		alignTo: 'target',
+		alignX: 'inner-left',
+		offsetX: 0,
+		offsetY: 5,
+		showTimeout: 100
+	});
+	$('#demo-form-subject').poshytip({
+		className: 'tip-yellowsimple',
+		showOn: 'focus',
+		alignTo: 'target',
+		alignX: 'center',
+		alignY: 'bottom',
+		offsetX: 0,
+		offsetY: 5,
+		showTimeout: 100
+	});
+});
+</script>
+</head>
+<body>
+<div style="margin:50px auto 0 auto;width:50%;">
+
+	<!-- #demo-basic -->
+	<p>
+		<a id="demo-basic" href="#" title="Hey, there! This is a tooltip.">Hover for a tooltip</a>
+	</p>
+	<pre>
+	$('#demo-basic').poshytip({
+		className: 'tip-yellowsimple',
+		showTimeout: 1,
+		alignTo: 'target',
+		alignX: 'center',
+		offsetY: 5
+	});
+	</pre>
+
+	<!-- #demo-form-name -->
+	<p>
+		<label for="demo-form-name">Name:</label><br />
+		<input id="demo-form-name" type="text" size="30" title="Enter your name" />
+	</p>
+	<pre>
+	$('#demo-form-name').poshytip({
+		className: 'tip-yellowsimple',
+		showOn: 'focus',
+		alignTo: 'target',
+		alignX: 'right',
+		alignY: 'center',
+		offsetX: 5,
+		showTimeout: 100
+	});
+	</pre>
+
+	<!-- #demo-form-email -->
+	<p>
+		<label for="demo-form-email">Email:</label><br />
+		<input id="demo-form-email" type="text" size="30" title="Enter a valid email" />
+	</p>
+	<div>
+	<pre>
+	$('#demo-form-email').poshytip({
+		className: 'tip-yellowsimple',
+		showOn: 'focus',
+		alignTo: 'target',
+		alignX: 'left',
+		alignY: 'center',
+		offsetX: 5,
+		showTimeout: 100
+	});
+	</pre>
+
+	<!-- #demo-form-site -->
+	<p>
+		<label for="demo-form-site">Site:</label><br />
+		<input id="demo-form-site" type="text" size="30" title="Enter your website URL" />
+	</p>
+	<pre>
+	$('#demo-form-site').poshytip({
+		className: 'tip-yellowsimple',
+		showOn: 'focus',
+		alignTo: 'target',
+		alignX: 'inner-left',
+		offsetX: 0,
+		offsetY: 5,
+		showTimeout: 100
+	});
+	</pre>
+
+	<!-- #demo-form-subject -->
+	<p>
+		<label for="demo-form-subject">Subject:</label><br />
+		<input id="demo-form-subject" type="text" size="30" title="Enter a subject" />
+	</p>
+	<pre>
+	$('#demo-form-subject').poshytip({
+		className: 'tip-yellowsimple',
+		showOn: 'focus',
+		alignTo: 'target',
+		alignX: 'center',
+		alignY: 'bottom',
+		offsetX: 0,
+		offsetY: 5,
+		showTimeout: 100
+	});
+	</pre>
+
+</div>
+</body>
+</html>

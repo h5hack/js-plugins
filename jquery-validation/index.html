@@ -1,0 +1,100 @@
+<style>
+label.error {
+    color:red;
+}
+</style>
+
+<form action="action.php" id="signupForm" method="post">
+    <div>
+        <label for="username">用户名：</label>
+        <input id="username" name="username" type="text">
+    </div>
+    <div>
+        <label for="email">邮箱：</label>
+        <input id="email" name="email" type="email">
+    </div>
+    <div>
+        <label for="pwd">密码：</label>
+        <input id="pwd" name="pwd" type="password">
+    </div>
+    <div>
+        <label for="c_pwd">确认密码：</label>
+        <input id="c_pwd" name="c_pwd" type="password">
+    </div>
+    <input type="submit" value="注册">
+</form>
+
+<script src="jquery.js"></script>
+<script src="jquery.validate.min.js"></script>
+<script>
+$("#signupForm").validate({
+    onkeyup: false,
+    rules: { 
+        username : {
+            required : true,
+            minlength : 5,
+            maxlength : 12,
+            remote: {                 // 数据异步验证
+                url: "chk_user.php",  // 服务端验证程序
+                type: "post",         // 提交方式
+                data: {               // 要传递的数据
+                    username: function() { return $("#username").val(); }
+                }
+            },
+        },
+        email: {  
+            required: true,
+            email: true,
+        },
+        pwd: {
+            required: true,
+            minlength: 6
+        },
+        c_pwd: {
+            required: true,
+            equalTo: "#pwd"
+        },
+    },
+
+    messages:{                        // ==== 提示信息 ====
+        username:{
+            required: "亲，您必须填写用户名",
+            minlength: "最少为5个字符",
+            maxlength: "最多为12个字符",
+            remote: "该用户名已存在"
+        },
+        email: {
+            required: "请填写邮箱地址",
+            email: "请输入正确的邮箱地址",
+        },
+        pwd : {
+            minlength: "最少大于6个字符"
+        },
+        c_pwd : {
+            required: "请再次输入密码",
+            equalTo : "两次输入密码不一致"
+        }
+    },
+   
+    errorPlacement: function(error, element) {        // 错误信息显示位置
+        if (element.is(":radio")) {
+            error.appendTo(element.parent());
+        } else if (element.is(":checkbox")) {
+            error.appendTo(element.parent());
+        } else if (element.is("input[name=verify]")) {
+            error.appendTo(element.parent());
+        } else {
+            error.insertAfter(element);
+        }
+    },
+   
+    success: function(label){                       // 验证信息成功后的操作
+        label.html(" ").addClass("success");
+    },
+  
+    submitHandler: function(form) {  // 表单验证成功时，点击提交按钮执行
+        form.submit();
+    },
+   
+});
+</script>

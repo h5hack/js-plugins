@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta charset="utf-8">
+ <link rel="stylesheet" type="text/css" href="buttons.css"/>
+ <script src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../js/noty/packaged/jquery.noty.packaged.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	$("button").click(function() {
+		noty({
+			type: "information",
+			text: "Information Tips",
+			layout: "topCenter",
+			timeout: 3000
+		});
+	});
+});
+</script>
+</head>
+<body>
+<button>click me!</button>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<link rel="stylesheet" href="css/colorpicker.css" type="text/css" />
+    <title>ColorPicker - jQuery plugin</title>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/colorpicker.js"></script>
+	<script>
+	$(function() {
+		$('button').ColorPicker({
+			eventName: 'click',
+			onShow: function (colpkr) {
+				$(colpkr).fadeIn(500);
+				$(this).addClass("click");
+				return false;
+			},
+			onHide: function (colpkr) {
+				$("button").removeClass('click');
+				$(colpkr).fadeOut(500);
+				return false;
+			},
+			onChange: function (hsb, hex, rgb) {
+				$("button.click").css('backgroundColor', '#' + hex);
+			},
+		});
+		
+	});
+	</script>
+<style>
+button {
+	width: 50px;
+	height: 50px;
+}
+</style>
+</head>
+<body>
+
+<button class="a"></button>
+<button class="a"></button>
+
+</body>
+</html>

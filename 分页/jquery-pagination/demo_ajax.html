@@ -1,0 +1,40 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pagination with Ajax</title>
+<link rel="stylesheet" href="pagination.css" />
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="jquery.pagination.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	// 创建分页
+	total_items = 100;
+	$("#pagination").pagination(total_items, {
+			items_per_page: 5,      // 每页显示5项
+			num_display_entries: 4, // 主体页数
+			num_edge_entries: 1,	// 边缘页数
+			prev_text: "上一页",
+			next_text: "下一页",
+			callback: pageselectCallback,
+	});
+	
+	function pageselectCallback(index, jq) {
+		page_index = index + 1;
+		$.get('process.php', {page: page_index}, function(data) {
+			$("#content").html(data);
+		});
+	}
+
+	// ajax 初始化内容
+	pageselectCallback(0);
+
+});
+</script>
+</head>
+<body>
+	<div id="pagination"></div>
+	<br />
+	<div id="content"></div>
+</body>
+</html>
